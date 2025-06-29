@@ -64,3 +64,34 @@ PYTHONPATH=. pytest tests/testApp.py -v
 ```bash
 $env:PYTHONPATH = "." ; pytest tests/testApp.py -v
 ```
+
+---
+
+## 📨 Email Notifications Setup
+
+If you're using Gmail for sending email reminders:
+
+1. Enable **2-Step Verification** on your Google account.
+2. Generate an **App Password** from **Google App Passwords**.
+3. Update the email configuration in **event_app.py**:
+
+```python
+EMAIL_ADDRESS = "your_email@gmail.com"
+EMAIL_PASSWORD = "your_app_password"
+```
+
+---
+
+## 📎 Postman Testing
+
+Import the provided **postman_collection.json** into Postman to test the API endpoints:
+* Create Event
+* List Events
+* Search Events
+* Update Event
+* Delete Event
+
+---
+
+## ✅ Summary
+This system provides a complete RESTful API for managing events with advanced features like searching and email notifications. It's ideal for personal use or as a foundation for building more complex scheduling applications.
