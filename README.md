@@ -65,6 +65,117 @@ PYTHONPATH=. pytest tests/testApp.py -v
 $env:PYTHONPATH = "." ; pytest tests/testApp.py -v
 ```
 
+### ✅ Sample Test Output
+
+```bash
+============================= test session starts ==============================
+...
+collected 8 items
+
+tests/testApp.py ........                                               [100%]
+
+============================== 8 passed in 0.34s ===============================
+```
+All tests should pass if the setup is correct.
+
+---
+
+## 🧪 Example API Commands & Outputs
+
+#### 🔹 Create an Event
+Command (via Postman Tool):
+```bash
+POST http://localhost:5000/events
+Content-Type: application/json
+
+{
+  "title": "Team Meeting",
+  "description": "Discuss project updates",
+  "start_time": "2025-04-10T10:00:00",
+  "end_time": "2025-04-10T11:00:00",
+  "reminders": ["user@example.com"]
+}
+```
+#### Example Output:
+```bash
+{
+  "id": 1,
+  "title": "Team Meeting",
+  "description": "Discuss project updates",
+  "start_time": "2025-04-10T10:00:00",
+  "end_time": "2025-04-10T11:00:00",
+  "reminders": ["user@example.com"]
+}
+```
+
+#### 🔹 List All Events
+Command:
+```bash
+GET http://localhost:5000/events
+```
+#### Example Output:
+```bash
+[
+  {
+    "id": 1,
+    "title": "Team Meeting",
+    "description": "Discuss project updates",
+    "start_time": "2025-04-10T10:00:00",
+    "end_time": "2025-04-10T11:00:00"
+  }
+]
+```
+
+#### 🔹 Search Events by Title or Description
+Command (via Postman Tool):
+```bash
+GET http://localhost:5000/search?q=team
+```
+#### Example Output:
+```bash
+[
+  {
+    "id": 1,
+    "title": "Team Meeting",
+    "description": "Discuss project updates",
+    "start_time": "2025-04-10T10:00:00",
+    "end_time": "2025-04-10T11:00:00"
+  }
+]
+```
+
+#### 🔹 Update an Event
+Command:
+```bash
+PUT http://localhost:5000/events/1
+Content-Type: application/json
+
+{
+  "title": "Updated Team Sync",
+  "description": "Urgent discussion",
+  "start_time": "2025-04-10T10:30:00",
+  "end_time": "2025-04-10T11:30:00"
+}
+```
+#### Example Output:
+```bash
+{
+  "message": "Event updated"
+}
+```
+
+#### 🔹 Delete an Event
+Command:
+```bash
+DELETE http://localhost:5000/events/1
+```
+#### Example Output:
+```bash
+{
+  "message": "Event deleted"
+}
+```
+
 ---
 
 ## 📨 Email Notifications Setup
