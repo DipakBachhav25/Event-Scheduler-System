@@ -1,184 +1,66 @@
 # 🗓️ Event Scheduler System
 
-A simple RESTful event scheduler built using *Python, **Flask, and **JSON-based persistence*.
-
-This system allows users to create, view, update, delete, and search events. Additionally, it supports email notifications before events start.
+A simple backend application built using **Flask** that allows users to manage events with the ability to create, view, update, delete, search events, and receive email notifications before event starts.
 
 ---
 
 ## 🧩 Features
 
-- ✅ Create, Read, Update, Delete Events
-- 🔍 Search Events by Title or Description
-- 📨 Email Reminders (15 minutes before event)
-- 💾 Data Persistence via JSON File
-- 🧪 Unit Tests with pytest
-- 📦 REST API Accessible via Postman or curl
+✅ Create Events with title, description, start time, end time  
+✅ List all scheduled events (sorted by start time)  
+✅ Update existing event details  
+✅ Delete events  
+✅ Search events by title or description  
+✅ Email reminders before events begin  
+✅ Data persistence using JSON file  
+✅ Unit tests with `pytest`  
+✅ Postman collection included for API testing  
 
 ---
 
-## 🛠️ Requirements
+## 📦 Requirements
 
-- Python 3.x
-- Flask
-- APScheduler (for background tasks)
+### Python Packages:
+Make sure these packages are installed:
 
-Install dependencies:
-
-bash
-pip install flask apscheduler
-
-
-> Note: This project does not require any database — all data is stored in a local events.json file.
+```bash
+pip install flask apscheduler pytest
+```
 
 ---
 
 ## 🚀 How to Run the Application
 
-1. Clone the repository (replace with your actual GitHub link):
+1. Clone or navigate to your project directory:
 
-bash
-git clone https://github.com/yourusername/event-scheduler.git
-cd event-scheduler
-
+```bash
+cd D:\Event Scheduler System
+```
 
 2. Install dependencies:
 
-bash
-pip install flask apscheduler
+```bash
+pip install flask apscheduler pytest
+```
 
+3. Start the Flask server:
 
-3. Run the application:
-
-bash
+```bash
 python event_app.py
-
-
-The server will start at http://localhost:5000.
-
----
-
-## 📝 Example Usage
-
-### 🟢 Create an Event with Reminder
-
-bash
-curl -X POST http://localhost:5000/events -H "Content-Type: application/json" -d '{
-  "title": "Team Meeting",
-  "description": "Discuss project updates",
-  "start_time": "2025-04-10T10:00:00",
-  "end_time": "2025-04-10T11:00:00",
-  "reminders": ["user@example.com"]
-}'
-
-
-*Output (example):*
-
-json
-{
-  "id": 1,
-  "title": "Team Meeting",
-  "description": "Discuss project updates",
-  "start_time": "2025-04-10T10:00:00",
-  "end_time": "2025-04-10T11:00:00",
-  "reminders": ["user@example.com"]
-}
-
-
----
-
-### 🔍 Search Events
-
-bash
-curl "http://localhost:5000/search?q=team"
-
-
-*Output (example):*
-
-json
-[
-  {
-    "id": 1,
-    "title": "Team Meeting",
-    "description": "Discuss project updates",
-    "start_time": "2025-04-10T10:00:00",
-    "end_time": "2025-04-10T11:00:00",
-    "reminders": ["user@example.com"]
-  }
-]
-
-
----
-
-### 📋 List All Events
-
-bash
-curl http://localhost:5000/events
-
-
----
-
-### 🆕 Update an Event
-
-bash
-curl -X PUT http://localhost:5000/events/1 -H "Content-Type: application/json" -d '{
-  "title": "Updated Team Sync",
-  "description": "Urgent discussion",
-  "start_time": "2025-04-10T10:30:00",
-  "end_time": "2025-04-10T11:30:00"
-}'
-
-
----
-
-### 🗑️ Delete an Event
-
-bash
-curl -X DELETE http://localhost:5000/events/1
-
-
----
-
-## 📁 Files Structure
-
-
-event-scheduler/
-│
-├── event_app.py            # Main Flask app
-├── events.json             # Event storage
-├── README.md               # This file
-├── postman_collection.json # Import into Postman for testing
-└── tests/
-    └── testApp.py          # Pytest unit tests
-
+```
+The server will be running at: http://localhost:5000
 
 ---
 
 ## 🧪 Running Tests
+To ensure everything works correctly, run the unit tests:
 
-Make sure you're in the root folder:
-
-bash
-cd D:\Event Scheduler System
-
-
-Run tests:
-
-bash
+```bash
 PYTHONPATH=. pytest tests/testApp.py -v
+```
 
+**Note:** Make sure you're in the root directory of your project if above command not working use below command
 
-You should see all tests pass successfully.
-
----
-
-## 📧 Email Notification Setup
-
-To enable email reminders:
-
-1. Set your email credentials in event_app.py:
-
-python
-EMAIL_ADDRESS = "your_email@gmail.com"
-EMAIL_PASSWORD = "your_app_password"
-
+```bash
+$env:PYTHONPATH = "." ; pytest tests/testApp.py -v
+```
