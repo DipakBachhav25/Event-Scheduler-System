@@ -35,3 +35,5 @@ Install dependencies:
 
 ```bash
 pip install flask apscheduler pytest
+
+## 📋 How to Run the Application
