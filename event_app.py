@@ -13,8 +13,8 @@ app = Flask(__name__)
 DATA_FILE = 'events.json'
 
 # Email configuration - Update these values
-EMAIL_ADDRESS = "bachhavdipak25@gmail.com"
-EMAIL_PASSWORD = "egox qxha jtso fgmv"
+EMAIL_ADDRESS = "enter_your_email"
+EMAIL_PASSWORD = "enter_app_password"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 
