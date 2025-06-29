@@ -1,0 +1,6 @@
+If you want to get the email notification do the below steps:
+1. Whenever you creating the event make sure the email notification sent to before 15 mins of event starting.
+For example:
+I'm creating the event with start time 10:30 AM
+And notification sent to the email before 15 mins means at 10:15 AM in our case
+So make sure always create the event before 10:15 AM in your example otherwise you'll not get the email notification

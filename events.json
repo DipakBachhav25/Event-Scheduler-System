@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "Team Meeting",
+        "description": "Discuss project updates",
+        "start_time": "2025-06-29T14:30:00",
+        "end_time": "2025-06-29T14:45:00",
+        "reminders": [
+            "dipakbachhav1512@gmail.com"
+        ]
+    }
+]

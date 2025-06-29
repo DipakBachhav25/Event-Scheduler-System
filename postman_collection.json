@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "Event Manager API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json "
+  },
+  "item": [
+    {
+      "name": "Create Event",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:5000/events",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["events"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Team Meeting\",\n  \"description\": \"Discuss project updates\",\n  \"start_time\": \"2025-04-10T10:00:00\",\n  \"end_time\": \"2025-04-10T11:00:00\",\n  \"reminders\": [\"user@example.com\"]\n}"
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    },
+    {
+      "name": "List All Events",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/events",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["events"]
+        }
+      }
+    },
+    {
+      "name": "Search Events",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/search?q=team",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["search"],
+          "query": [
+            {
+              "key": "q",
+              "value": "team"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Event",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:5000/events/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["events", "1"],
+          "variable": [
+            {
+              "id": "event_id",
+              "value": "1"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Meeting\",\n  \"description\": \"Urgent update\",\n  \"start_time\": \"2025-04-10T10:30:00\",\n  \"end_time\": \"2025-04-10T11:30:00\",\n  \"reminders\": [\"new_email@example.com\"]\n}"
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Delete Event",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:5000/events/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["events", "1"],
+          "variable": [
+            {
+              "id": "event_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
